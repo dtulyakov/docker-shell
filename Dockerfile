@@ -1,7 +1,8 @@
 FROM dtulyakov/jessie
 
 #ENV LC_ALL C.UTF-8
-ADD brc /root/.bashrc
+ADD bashrc /root/.bashrc
+ADD zshrc /root/.zshrc
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -25,6 +26,7 @@ RUN apt-get update \
       vim \
 #     wget \
 #     xz-utils \
+      zsh \
 #    && apt-get -y purge x11-common --auto-remove \
     && apt-get clean \
     && apt-get autoremove -y \
@@ -34,8 +36,3 @@ RUN echo "syntax on" >> /etc/vim/vimrc \
     echo "set number" >> /etc/vim/vimrc \
     echo "set cursorline" >> /etc/vim/vimrc \
     echo "set showmatch" >> /etc/vim/vimrc
-
-#en_US.UTF-8 UTF-8
-#    && dpkg-reconfigure locales \
-#    && locale-gen C.UTF-8 \
-#    && /usr/sbin/update-locale LANG=C.UTF-8
