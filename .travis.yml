@@ -1,0 +1,17 @@
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+before_install:
+- docker build -t dtulyakov/shell:latest .
+- docker run -d dtulyakov/shell:latest
+- docker ps -a
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push dtulyakov/shell:latest;
+    fi
