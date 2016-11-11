@@ -10,6 +10,9 @@ before_install:
 - docker run -d dtulyakov/shell:latest
 - docker ps -a
 
+script:
+- date
+
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
