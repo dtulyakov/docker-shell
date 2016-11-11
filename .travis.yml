@@ -1,3 +1,9 @@
+notifications:
+  email:
+    recipients:
+      - root.denis@gmail.com
+      - dtulyakov.log@gmail.com
+
 sudo: required
 
 language: bash
