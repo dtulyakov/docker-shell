@@ -1,7 +1,7 @@
 notifications:
   email:
     recipients:
-      - root.denis@gmail.com
+      - dtulyakov@gmail.com
       - dtulyakov.log@gmail.com
 
 sudo: required
